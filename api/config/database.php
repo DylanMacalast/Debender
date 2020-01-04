@@ -25,7 +25,6 @@ class Database
 
         }
 
-        //var_dump($this->conn);
         return $this->conn;
 
     }

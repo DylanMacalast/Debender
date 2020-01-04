@@ -1,7 +1,6 @@
 <?php
 /**
  * This class will act as a model to the API
- * TODO: Need to create a query wich will get a random ID from the database each time it is called
  **/
 class Product
 {
@@ -37,6 +36,36 @@ class Product
         $stmt->execute();
 
         return $stmt;
+    }
+
+    /**
+     * Create method
+     * This will allow the user to create data
+     **/
+    public function create()
+    {
+
+        //sanitize user inputed data
+        $this->title = htmlspecialchars(strip_tags($this->title));
+
+        //query to insert into db
+        $query = "INSERT INTO " . $this->table_name . " SET Title='$this->title', Created='$this->created'";
+
+        //prepare query
+        $stmt = $this->conn->prepare($query);    
+
+        //get errors
+        $this->conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+
+        //execute query
+        if($stmt->execute())
+        {
+            return true;
+        }
+
+        // will return false if data is not added into the database
+        return false;
+
     }
 
 
