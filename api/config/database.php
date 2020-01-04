@@ -2,10 +2,10 @@
 
 class Database
 {
-    private $host = "localhost";
-    private $db_name = "debender_api";
-    private $username = "root";
-    private $password= "root";
+    private $host = "vlvlnl1grfzh34vj.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
+    private $db_name = "dcwwlhsbw34cjcah";
+    private $username = "oo99hwn9jv2h6ezv";
+    private $password= "vk9n5tj0cd0xd857";
     public $conn;
 
     //get database connection
@@ -25,8 +25,10 @@ class Database
 
         }
 
+        //var_dump($this->conn);
         return $this->conn;
 
     }
 }
+
 
