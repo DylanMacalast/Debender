@@ -1,16 +1,21 @@
 <?php
+// autloading classes
+require __DIR__ .'/../config/bootstrap.php';
+use \App\Includes\Models\BaseModel as BaseModel;
+use \App\config\database as Database;
+use \App\objects\product as Product;
 
 /**
  * This is the endpoint for the API 
  * It can be read by anyone *
  * Will return data in JSON format
  **/
+
+//headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
 // include database and object files here - TODO: use composer autload for this once you have finished it!
-include_once '../config/database.php';
-include_once '../objects/product.php';
 
 //instanciate the database and product object
 $database = new Database();
@@ -38,7 +43,7 @@ if($num > 0){
         $product_item = array(
             "ID" => $ID,
             "Title" => $Title,
-            "Created" => $Created
+            "Audit_created" => $Audit_created
         );
 
         array_push($products_arr["records"], $product_item);
