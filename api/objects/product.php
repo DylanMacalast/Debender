@@ -30,7 +30,7 @@ class Product
      **/
     public function read()
     {
-        $query = "SELECT * FROM " . $this->table_name . " ORDER BY RAND() LIMIT 1";
+        $query = "SELECT * FROM " . $this->table_name . " ORDER BY RAND() LIMIT 2";
 
         //prepare query
         $stmt = $this->conn->prepare($query);
